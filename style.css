@@ -1,0 +1,542 @@
+/* ===============================
+   1. RESET & FÄRGER
+================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cream: #f6f1e8;
+  --paper: #fffaf2;
+  --green: #7f9271;
+  --green-dark: #4f6448;
+  --green-light: #eef2e7;
+  --purple: #b9a4cf;
+  --gold: #d8a15f;
+  --black: #1f1f1b;
+  --gray: #6f6b63;
+  --beige: #e8dfd2;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--black);
+  background: var(--cream);
+  line-height: 1.6;
+}
+
+.butterfly-trail {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s linear;
+}
+
+/* ===============================
+   2. HEADER / NAVBAR
+================================= */
+
+.header {
+  height: 76px;
+  padding: 0 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #7f9271;
+  /* border-bottom: 1px solid var(--beige); */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 99px;
+  width: auto;
+  display: block;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.menu a {
+  color: var(--black);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* ===============================
+   3. HERO (Min första sida med fjärilsbakgrund)
+================================= */
+
+.hero {
+  min-height: 92vh;
+  padding: 80px 10%;
+  background-color: var(--paper);
+  background-image: url("images/hero-butterflies.png");
+  background-size: cover;
+  background-position: center 49%;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 900px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--green-dark);
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 7em;
+  line-height: 0.9;
+  letter-spacing: -3px;
+  color: var(--black);
+}
+
+.hero h2 {
+  margin: 22px auto 0;
+  max-width: 650px;
+  color: var(--gray);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.hero p {
+  margin-top: 20px;
+  color: var(--black);
+  font-size: 1rem;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 15px 32px;
+  background: var(--green-dark);
+  color: white;
+  text-decoration: none;
+  border-radius: 14px;
+  font-weight: 800;
+  box-shadow: 0 12px 24px rgba(79, 100, 72, 0.22);
+}
+
+.button:hover {
+  background: var(--green);
+}
+
+/* ===============================
+   4. GENERELLA SEKTIONER
+================================= */
+
+.section {
+  padding: 80px 10%;
+  background: var(--cream);
+}
+
+.section-light {
+  background: var(--green-light);
+}
+
+.section > h1 {
+  font-size: 3.5rem;
+  line-height: 1;
+  margin-bottom: 38px;
+  color: var(--black);
+}
+
+/* ===============================
+   6. ATT GÖRA
+================================= */
+
+.activity-section {
+  padding: 80px 10%;
+  background: var(--green-dark);
+}
+
+.activity-section .eyebrow {
+  color: var(--gold);
+  display: flex;
+  justify-content: center;
+}
+
+.activity-section h1 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-size: 3.5rem;
+  line-height: 1;
+  margin-bottom: 38px;
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 250px));
+  justify-content: center;
+  gap: 1.375rem;
+}
+
+.activity-card {
+  flex: 0 0 250px;
+  background: var(--paper);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.22);
+  transition: transform 0.25s ease;
+}
+
+.activity-card:hover {
+  transform: translateY(-6px);
+}
+
+.activity-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.playground-img {
+  object-position: center top;
+}
+
+.activity-content {
+  padding: 20px 22px 24px;
+  text-align: center;
+}
+
+.activity-content h2 {
+  font-size: 1.35rem;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+
+.activity-content p {
+  color: var(--gray);
+  line-height: 1.45;
+}
+
+/* ===============================
+   7. FJÄRILARNA
+================================= */
+
+.animal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  justify-content: center;
+}
+
+.animal-grid article {
+  background: var(--paper);
+  border: 1px solid var(--beige);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(70, 55, 35, 0.08);
+}
+
+.animal-grid img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 22px 22px 0 0;
+  display: block;
+  padding: 0;
+  margin: 0;
+  background: #f3eadf;
+}
+
+.animal-grid h2 {
+  font-size: 1.2rem;
+  padding: 18px 20px;
+  color: var(--black);
+}
+
+#animal {
+  text-align: center;
+}
+
+/* ===============================
+   8. TABELL ART WIKIPEDIA
+================================= */
+
+#artinfo {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(70, 55, 35, 0.08);
+}
+
+th {
+  background: var(--green-dark);
+  color: white;
+}
+
+th,
+td {
+  padding: 16px;
+  border-bottom: 1px solid var(--beige);
+  text-align: left;
+}
+
+td {
+  color: var(--black);
+}
+
+td img {
+  width: 85px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+td a {
+  color: var(--green-dark);
+  font-weight: 800;
+}
+
+/* ===============================
+   9. NYHETSBREV och PRENUMERERA
+================================= */
+
+.newsletter {
+  padding: 80px 10%;
+  background:
+    radial-gradient(
+      ellipse at 50% 108%,
+      rgba(185, 164, 207, 0.2),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 58% 102%,
+      rgba(150, 118, 180, 0.32),
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at 16% 35%,
+      rgba(255, 248, 230, 0.58),
+      transparent 32%
+    ),
+    radial-gradient(circle at 13% 42%, rgba(31, 31, 27, 0.12), transparent 20%),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(238, 126, 35, 0.26),
+      transparent 32%
+    ),
+    linear-gradient(135deg, #6f7f62 0%, #7f9271 42%, #4f6448 100%);
+  color: white;
+  text-align: center;
+}
+
+.newsletter h1 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.newsletter .eyebrow {
+  color: var(--paper);
+}
+
+form {
+  max-width: 650px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+input,
+button {
+  padding: 15px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+input {
+  background: white;
+  color: var(--black);
+}
+
+button {
+  grid-column: span 2;
+  background: var(--gold);
+  color: var(--black);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #c88d45;
+}
+
+/* ===============================
+   10. KARTA / GOOGLE MAPS
+================================= */
+
+#visit {
+  text-align: center;
+}
+
+.map iframe {
+  width: 100%;
+  height: 330px;
+  border: none;
+  border-radius: 22px;
+}
+
+/* ===============================
+   11. FOOTER
+================================= */
+
+.footer {
+  position: relative;
+  overflow: hidden;
+  padding: 70px 10%;
+  background: var(--green-dark);
+  color: var(--paper);
+  text-align: center;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+
+.footer h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.footer p {
+  margin-bottom: 18px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin: 25px 0;
+}
+
+.footer-links a {
+  color: var(--paper);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-copy {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer-butterfly {
+  position: absolute;
+  right: 5%;
+  bottom: -40px;
+  width: 360px;
+  opacity: 0.22;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ===============================
+   12. RESPONSIV
+================================= */
+
+@media (max-width: 1000px) {
+  .activity-grid,
+  .animal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.hero h1 {
+  font-size: 7rem;
+}
+
+.butterfly-row {
+  overflow-x: auto;
+}
+
+.butterfly-card {
+  min-width: 230px;
+}
+
+@media (max-width: 700px) {
+  .header,
+  .hero,
+  .section,
+  .newsletter,
+  footer {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .activity-grid,
+  .animal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .butterfly-trail {
+    display: none;
+  }
+}
